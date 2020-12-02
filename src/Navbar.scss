@@ -1,0 +1,22 @@
+@import './_variables.scss';
+
+.navbar {
+  border-bottom: $light-blue solid 2px;
+  color: $white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+}
+
+.button {
+  background-color: $orange;
+  color: $dark-blue;
+  position: fixed;
+  right: 0px;
+  margin-right: 2em;
+  border-radius: 0.5em;
+  height: 2.5em;
+  width: 6em;
+}

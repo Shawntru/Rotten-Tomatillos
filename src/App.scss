@@ -1,0 +1,16 @@
+@import './_variables.scss';
+
+* {
+  margin: 0px;
+}
+
+.App {
+  text-align: center;
+  background-color: $dark-blue;
+  height: 100%;
+  margin: 0px;
+}
+
+#blockColorblindContent {
+  display: none !important;
+}

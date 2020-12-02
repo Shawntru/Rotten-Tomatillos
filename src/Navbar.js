@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Navbar.css'
+import './Navbar.scss'
 
 class Navbar extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Navbar extends Component {
     return (
       <nav className='navbar'>
         <h1 className='site-title'>Rancid Tomatillos</h1>
-        <button onClick={ this.handleHomeButton }>HOME</button>
+        <button onClick={ this.handleHomeButton } className='button'>HOME</button>
       </nav>
     )
   }

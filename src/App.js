@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Movies from './Movies';
 import Navbar from './Navbar';
 import movieData from './movieData';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main className='App'>
         <Navbar />
         <Movies moviesInfo={ this.state.movies } />
       </main>
