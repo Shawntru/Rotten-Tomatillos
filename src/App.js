@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import Movies from './Movies';
 import Navbar from './Navbar';
-import movieData from './movieData';
+// import movieData from './movieData';
 import MoviePreview from './MoviePreview';
+import { getAllMovieData, getSingleMovieData } from './apiCalls';
 import './App.scss';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      homePageMovies: movieData,
+      homePageMovies: [],
       clickedMovie: '',
-      movieObject: {}
+      movieObject: {},
+      error: ''
     }
+  }
+
+  componentDidMount = () => {
+    getAllMovieData()
+      .then(data => this.setState({ homePageMovies: data.movies }))
+      .catch(error => this.setState({ error }))
   }
 
   handleHomeButton = (event) => {
@@ -24,10 +32,9 @@ class App extends Component {
   }
 
   handleMovieClick = (id) => {
-      console.log(id + " Hello")
       this.setState({ 
         clickedMovie: id,
-        movieObject: this.state.homePageMovies.movies.find(movie => movie.id === id)
+        movieObject: this.state.homePageMovies.find(movie => movie.id === id)
       })
   }
 
@@ -36,11 +43,25 @@ class App extends Component {
     return (
       <main className='app'>
         <Navbar />
-        { !this.state.clickedMovie && 
-          <Movies moviesInfo={ this.state.homePageMovies.movies } handleMovieClick={ this.handleMovieClick }/>
+        {
+          this.state.error && 
+          <h2>{this.state.error} </h2> 
         }
-        { this.state.clickedMovie && 
-          <MoviePreview moviePreviewInfo={ this.state.movieObject } closeMoviePreviewBtn = { this.handleHomeButton }/>
+        {
+          !this.state.homePageMovies.length &&
+          <h2> ...Loading Movies...</h2>
+        }
+        { 
+          !this.state.clickedMovie && 
+          <Movies 
+            moviesInfo={ this.state.homePageMovies } 
+            handleMovieClick={ this.handleMovieClick }/>
+        }
+        { 
+          this.state.clickedMovie && 
+           <MoviePreview 
+             moviePreviewInfo={ this.state.movieObject } 
+             closeMoviePreviewBtn = { this.handleHomeButton }/>
         }
       </main>
     )
