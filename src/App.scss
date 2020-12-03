@@ -1,14 +1,21 @@
 @import './_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 * {
   margin: 0px;
 }
 
-.App {
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
   text-align: center;
   background-color: $dark-blue;
   height: 100%;
   margin: 0px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #blockColorblindContent {
