@@ -14,6 +14,15 @@ class App extends Component {
       movieObject: {}
     }
   }
+
+  handleHomeButton = (event) => {
+    event.preventDefault();
+    this.setState({
+      clickedMovie: '',
+      movieObject: {}
+    })
+  }
+
   handleMovieClick = (id) => {
       console.log(id + " Hello")
       this.setState({ 
@@ -31,7 +40,7 @@ class App extends Component {
           <Movies moviesInfo={ this.state.homePageMovies.movies } handleMovieClick={ this.handleMovieClick }/>
         }
         { this.state.clickedMovie && 
-          <MoviePreview moviePreviewInfo={ this.state.movieObject }/>
+          <MoviePreview moviePreviewInfo={ this.state.movieObject } closeMoviePreviewBtn = { this.handleHomeButton }/>
         }
       </main>
     )

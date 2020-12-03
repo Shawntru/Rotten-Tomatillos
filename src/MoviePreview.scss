@@ -8,8 +8,77 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-// .movie-preview-img {
+.description-wrapper {
+  height: 30em;
+  width: 50em;
+  background: rgba(253, 255, 252, 0.7);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
-// }
+.movie-preview-img {
+  height: 25em;
+  margin: 3em;
+}
+
+.movie-description {
+  height: 25em;
+  margin: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.movie-preview-title {
+  font-size: 2em;
+  border-bottom: $dark-blue solid 2px;
+  margin-bottom: 0.5em;
+}
+
+.movie-info-detail {
+  text-align: -webkit-auto;
+  margin: 0.3em 0.3em 0.3em 0;
+}
+
+.movie-preview-button {
+  position: absolute;
+  margin: 1em 2em 0 0;
+  right: 0px;
+  top: 0px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  outline: none;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  transition: all 1s;
+
+  &:hover::before {
+    transition: transform 0.5s cubic-bezier(0, 1.76, 0.5, -0.4);
+    transform: rotate(45deg);
+  }
+  &:hover::after {
+    transition: transform 0.5s cubic-bezier(0, 1.76, 0.5, -0.4);
+    transform: rotate(-45deg);
+  }
+}
+
+.movie-preview-button:before, .movie-preview-button:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 3px;
+  background-color: #000;
+  cursor: pointer;
+}
+
+
