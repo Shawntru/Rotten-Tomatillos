@@ -4,7 +4,12 @@
   margin: 0px;
 }
 
-.App {
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
   text-align: center;
   background-color: $dark-blue;
   height: 100%;
