@@ -32,10 +32,9 @@ class App extends Component {
   }
 
   handleMovieClick = (id) => {
-      this.setState({ 
-        clickedMovie: id,
-        movieObject: this.state.homePageMovies.find(movie => movie.id === id)
-      })
+    this.setState({ clickedMovie: id })
+    getSingleMovieData(id)
+    .then(data => this.setState({ movieObject: data.movie }))
   }
 
   render() {
