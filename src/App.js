@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Movies from './Movies';
-import Navbar from './Navbar';
-// import movieData from './movieData';
-import MoviePreview from './MoviePreview';
+import Movies from './Movies/Movies';
+import Navbar from './Navbar/Navbar';
+import ErrorPage from './ErrorPage/ErrorPage';
+import MoviePreview from './MoviePreview/MoviePreview';
 import { getAllMovieData, getSingleMovieData } from './apiCalls';
 import './App.scss';
 
@@ -18,9 +18,13 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    getAllMovieData()
-      .then(data => this.setState({ homePageMovies: data.movies }))
-      .catch(error => this.setState({ error }))
+    if (getAllMovieData()) {
+      getAllMovieData()
+        .then(data => this.setState({ homePageMovies: data.movies }))
+        .catch(error => this.setState({ error }))
+    } else {
+      throw new Error("Wrong Bad");
+    }
   }
 
   handleHomeButton = (event) => {
@@ -35,6 +39,7 @@ class App extends Component {
     this.setState({ clickedMovie: id })
     getSingleMovieData(id)
     .then(data => this.setState({ movieObject: data.movie }))
+    .catch(error => this.setState({ error }))
   }
 
   render() {
@@ -44,7 +49,8 @@ class App extends Component {
         <Navbar />
         {
           this.state.error && 
-          <h2>{this.state.error} </h2> 
+          <ErrorPage 
+            errorMessage={ this.state.error }/>
         }
         {
           !this.state.homePageMovies.length &&
