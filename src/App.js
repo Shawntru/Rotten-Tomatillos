@@ -18,13 +18,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    if (getAllMovieData()) {
       getAllMovieData()
         .then(data => this.setState({ homePageMovies: data.movies }))
-        .catch(error => this.setState({ error }))
-    } else {
-      throw new Error("Wrong Bad");
-    }
+        .catch(error => this.setState({ error: error}))
   }
 
   handleHomeButton = (event) => {
@@ -39,7 +35,7 @@ class App extends Component {
     this.setState({ clickedMovie: id })
     getSingleMovieData(id)
     .then(data => this.setState({ movieObject: data.movie }))
-    .catch(error => this.setState({ error }))
+    .catch(error => this.setState({ error: error }))
   }
 
   render() {

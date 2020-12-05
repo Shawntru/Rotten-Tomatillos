@@ -29,7 +29,7 @@ describe('MovieCard', () => {
      />
     )
 
-    const movieCard = screen.getByTestId("moviecard-element");
+    const movieCard = screen.getByTestId("moviecard-element-694919");
     fireEvent.click(movieCard);
 
     expect(mockMovieClickEvent).toHaveBeenCalledWith( 694919 );

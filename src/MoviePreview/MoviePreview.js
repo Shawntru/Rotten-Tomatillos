@@ -16,7 +16,7 @@ const MoviePreview = (props) => {
     runtime 
   } = props.moviePreviewInfo;
     return (
-      <section className="movie-preview-page " style={{backgroundImage: `url(${ backdrop_path })`}} >
+      <section data-testid='movie-preview-page' className="movie-preview-page " style={{backgroundImage: `url(${ backdrop_path })`}} >
         <div className="description-wrapper">
           <img className='movie-preview-img' src={poster_path} alt={title}/>
           <div className="movie-description">
