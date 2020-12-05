@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import Movies from './Movies';
-import Navbar from './Navbar';
-import movieData from './movieData';
-import MoviePreview from './MoviePreview';
+import Movies from './Movies/Movies';
+import Navbar from './Navbar/Navbar';
+import ErrorPage from './ErrorPage/ErrorPage';
+import MoviePreview from './MoviePreview/MoviePreview';
+import { getAllMovieData, getSingleMovieData } from './apiCalls';
 import './App.scss';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      homePageMovies: movieData,
+      homePageMovies: [],
       clickedMovie: '',
-      movieObject: {}
+      movieObject: {},
+      error: ''
+    }
+  }
+
+  componentDidMount = () => {
+    if (getAllMovieData()) {
+      getAllMovieData()
+        .then(data => this.setState({ homePageMovies: data.movies }))
+        .catch(error => this.setState({ error }))
+    } else {
+      throw new Error("Wrong Bad");
     }
   }
 
@@ -24,11 +36,10 @@ class App extends Component {
   }
 
   handleMovieClick = (id) => {
-      console.log(id + " Hello")
-      this.setState({ 
-        clickedMovie: id,
-        movieObject: this.state.homePageMovies.movies.find(movie => movie.id === id)
-      })
+    this.setState({ clickedMovie: id })
+    getSingleMovieData(id)
+    .then(data => this.setState({ movieObject: data.movie }))
+    .catch(error => this.setState({ error }))
   }
 
   render() {
@@ -36,11 +47,26 @@ class App extends Component {
     return (
       <main className='app'>
         <Navbar />
-        { !this.state.clickedMovie && 
-          <Movies moviesInfo={ this.state.homePageMovies.movies } handleMovieClick={ this.handleMovieClick }/>
+        {
+          this.state.error && 
+          <ErrorPage 
+            errorMessage={ this.state.error }/>
         }
-        { this.state.clickedMovie && 
-          <MoviePreview moviePreviewInfo={ this.state.movieObject } closeMoviePreviewBtn = { this.handleHomeButton }/>
+        {
+          !this.state.homePageMovies.length &&
+          <h2> ...Loading Movies...</h2>
+        }
+        { 
+          !this.state.clickedMovie && 
+          <Movies 
+            moviesInfo={ this.state.homePageMovies } 
+            handleMovieClick={ this.handleMovieClick }/>
+        }
+        { 
+          this.state.clickedMovie && 
+           <MoviePreview 
+             moviePreviewInfo={ this.state.movieObject } 
+             closeMoviePreviewBtn = { this.handleHomeButton }/>
         }
       </main>
     )

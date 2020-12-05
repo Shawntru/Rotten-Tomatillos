@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../variables.scss';
 
 .movie-preview-page {
   height: 100vh;
@@ -14,7 +14,7 @@
 }
 
 .description-wrapper {
-  height: 30em;
+  height: auto;
   width: 50em;
   background: rgba(253, 255, 252, 0.7);
   display: flex;
@@ -28,7 +28,8 @@
 }
 
 .movie-description {
-  height: 25em;
+  height: 100%;
+  width: 50em;
   margin: 3em;
   display: flex;
   flex-direction: column;
