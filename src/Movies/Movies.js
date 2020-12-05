@@ -17,7 +17,7 @@ const Movies = (props) => {
   })
   
   return (
-    <section className='movies-list'>
+    <section data-testid='movies-element' className='movies-list'>
       {movieCards}
     </section>
   )
