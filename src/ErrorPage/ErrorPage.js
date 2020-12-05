@@ -3,7 +3,7 @@ import './ErrorPage.scss';
 
 const ErrorPage = ({ errorMessage }) => {
   return (
-    <section className="error-page app">
+    <section data-testid='error-page-element' className="error-page app">
       <h1>Oops! {errorMessage}</h1>
       <h3>Something went wrong. Our servers need some time to ketchup!</h3>
     </section>
