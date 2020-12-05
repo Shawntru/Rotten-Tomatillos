@@ -30,7 +30,7 @@ const MoviePreview = (props) => {
             <p className="movie-info-detail">Genres: {genres}</p>
             <p className="movie-info-detail">Overview: {overview}</p>
           </div>
-          <button onClick = { props.closeMoviePreviewBtn } className='movie-preview-button'></button>
+          <button data-testid='closing-button-element' onClick = { props.closeMoviePreviewBtn } className='movie-preview-button'></button>
         </div>
       </section>
     )
