@@ -4,6 +4,7 @@ import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
 import { getAllMovieData, getSingleMovieData } from './apiCalls';
+import { Route } from 'react-router-dom';
 import './App.scss';
 
 class App extends Component {
@@ -13,61 +14,69 @@ class App extends Component {
       homePageMovies: [],
       clickedMovie: '',
       movieObject: {},
-      error: ''
-    }
+      error: '',
+    };
   }
 
   componentDidMount = () => {
-      getAllMovieData()
-        .then(data => this.setState({ homePageMovies: data.movies }))
-        .catch(error => this.setState({ error}))
-  }
+    getAllMovieData()
+      .then((data) => this.setState({ homePageMovies: data.movies }))
+      .catch((error) => this.setState({ error }));
+  };
 
   handleHomeButton = (event) => {
     event.preventDefault();
     this.setState({
       clickedMovie: '',
-      movieObject: {}
-    })
-  }
+      movieObject: {},
+    });
+  };
 
   handleMovieClick = (id) => {
     getSingleMovieData(id)
-    .then(data => this.setState({ 
-      movieObject: data.movie, 
-      clickedMovie: id                         
-    }))
-    .catch(error => this.setState({ error }))
-  }
+      .then((data) =>
+        this.setState({
+          movieObject: data.movie,
+          clickedMovie: id,
+        })
+      )
+      .catch((error) => this.setState({ error }));
+  };
 
   render() {
-  
     return (
-      <main className='app'>
+      <main className="app">
         <Navbar />
-        {
-          this.state.error && 
-          <ErrorPage 
-            errorMessage={ this.state.error }/>
-        }
-        {
-          !this.state.homePageMovies.length &&
+        {!this.state.homePageMovies.length && (
           <h2 className="error-page"> ...Loading Movies...</h2>
-        }
-        { 
-          !this.state.clickedMovie && 
-          <Movies 
-            moviesInfo={ this.state.homePageMovies } 
-            handleMovieClick={ this.handleMovieClick }/>
-        }
-        { 
-          this.state.clickedMovie && 
-           <MoviePreview 
-             moviePreviewInfo={ this.state.movieObject } 
-             closeMoviePreviewBtn = { this.handleHomeButton }/>
-        }
+        )}
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <Movies
+                moviesInfo={this.state.homePageMovies}
+                handleMovieClick={this.handleMovieClick}
+              />
+            );
+          }}
+        />
+        {/* {!this.state.clickedMovie && (
+          <Movies
+            moviesInfo={this.state.homePageMovies}
+            handleMovieClick={this.handleMovieClick}
+          />
+        )} */}
+        {/* {this.state.clickedMovie && (
+          <MoviePreview
+            moviePreviewInfo={this.state.movieObject}
+            closeMoviePreviewBtn={this.handleHomeButton}
+          />
+        )} */}
+        {/* {this.state.error && <ErrorPage errorMessage={this.state.error} />} */}
       </main>
-    )
+    );
   }
 }
 
