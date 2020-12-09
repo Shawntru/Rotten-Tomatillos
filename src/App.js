@@ -12,9 +12,9 @@ class App extends Component {
     super();
     this.state = {
       homePageMovies: [],
-      clickedMovie: '',
-      movieObject: {},
       error: '',
+      // clickedMovie: '',
+      movieObject: {},
     };
   }
 
@@ -24,6 +24,8 @@ class App extends Component {
       .catch((error) => this.setState({ error }));
   };
 
+  // FUNCTION REMOVED, now handled by <Link> in MoviePreview
+  //
   handleHomeButton = (event) => {
     event.preventDefault();
     this.setState({
@@ -38,6 +40,17 @@ class App extends Component {
         this.setState({
           movieObject: data.movie,
           clickedMovie: id,
+        })
+      )
+      .catch((error) => this.setState({ error }));
+  };
+
+  handleRefresh = (id) => {
+    getSingleMovieData(id)
+      .then((data) =>
+        this.State({
+          clickedMovie: id,
+          movieObject: data.movie,
         })
       )
       .catch((error) => this.setState({ error }));
@@ -61,6 +74,29 @@ class App extends Component {
               />
             );
           }}
+        />
+        <Route
+          exact
+          path="/movie/:id"
+          render={(props) => {
+            return (
+              <MoviePreview
+                {...props}
+                moviePreviewInfo={this.state.movieObject}
+                closeMoviePreviewBtn={this.handleHomeButton}
+                movieRefreshFunction={this.handleRefresh}
+              />
+            );
+          }}
+
+          // render={({ match }) => {
+          //   const { id } = match.params;
+          //   const movieToRender = this.state.homePageMovies.find(
+          //     (movie) => movie.id === parseInt(id, 10)
+          //   );
+          //   if (!movieToRender) return <h2>No Movie Found</h2>;
+          //   return <MoviePreview {...movieToRender} />;
+          // }}
         />
         {/* {!this.state.clickedMovie && (
           <Movies
