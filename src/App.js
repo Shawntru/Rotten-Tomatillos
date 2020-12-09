@@ -4,7 +4,7 @@ import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
 import { getAllMovieData, getSingleMovieData } from './apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './App.scss';
 
 class App extends Component {
@@ -29,7 +29,6 @@ class App extends Component {
   handleHomeButton = (event) => {
     event.preventDefault();
     this.setState({
-      clickedMovie: '',
       movieObject: {},
     });
   };
@@ -39,17 +38,16 @@ class App extends Component {
       .then((data) =>
         this.setState({
           movieObject: data.movie,
-          clickedMovie: id,
         })
       )
+      .then(() => this.props.history.push(`/movie/${id}`))
       .catch((error) => this.setState({ error }));
   };
 
   handleRefresh = (id) => {
     getSingleMovieData(id)
       .then((data) =>
-        this.State({
-          clickedMovie: id,
+        this.setState({
           movieObject: data.movie,
         })
       )
@@ -116,4 +114,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

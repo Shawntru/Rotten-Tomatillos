@@ -6,15 +6,13 @@ import { Link } from 'react-router-dom';
 const Movies = (props) => {
   const movieCards = props.moviesInfo.map((movie) => {
     return (
-      <Link to={`/movie/${movie.id}`}>
-        <MovieCard
-          title={movie.title}
-          posterPath={movie.poster_path}
-          id={movie.id}
-          key={movie.id}
-          movieEventClick={() => props.handleMovieClick(movie.id)}
-        />
-      </Link>
+      <MovieCard
+        title={movie.title}
+        posterPath={movie.poster_path}
+        id={movie.id}
+        key={movie.id}
+        movieEventClick={() => props.handleMovieClick(movie.id)}
+      />
     );
   });
 

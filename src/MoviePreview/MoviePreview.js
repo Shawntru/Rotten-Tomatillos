@@ -16,7 +16,6 @@ const MoviePreview = (props) => {
     average_rating,
     runtime,
   } = props.moviePreviewInfo;
-  console.log(props.moviePreviewInfo);
 
   //TO DO tests for functions
   function switchNumToCurrency(number) {
