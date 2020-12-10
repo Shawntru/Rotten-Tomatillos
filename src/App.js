@@ -3,7 +3,8 @@ import Movies from './Movies/Movies';
 import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
-import { getAllMovieData, getSingleMovieData } from './apiCalls';
+import { getAllMovieData } from './apiCalls';
+import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
 class App extends Component {
@@ -11,63 +12,32 @@ class App extends Component {
     super();
     this.state = {
       homePageMovies: [],
-      clickedMovie: '',
-      movieObject: {},
-      error: ''
-    }
+      error: '',
+    };
   }
 
   componentDidMount = () => {
-      getAllMovieData()
-        .then(data => this.setState({ homePageMovies: data.movies }))
-        .catch(error => this.setState({ error}))
-  }
-
-  handleHomeButton = (event) => {
-    event.preventDefault();
-    this.setState({
-      clickedMovie: '',
-      movieObject: {}
-    })
-  }
-
-  handleMovieClick = (id) => {
-    getSingleMovieData(id)
-    .then(data => this.setState({ 
-      movieObject: data.movie, 
-      clickedMovie: id                         
-    }))
-    .catch(error => this.setState({ error }))
-  }
+    getAllMovieData()
+      .then((data) => this.setState({ homePageMovies: data.movies }))
+      .catch((error) => this.setState({ error }));
+  };
 
   render() {
-  
     return (
-      <main className='app'>
+      <main className="app">
         <Navbar />
-        {
-          this.state.error && 
-          <ErrorPage 
-            errorMessage={ this.state.error }/>
-        }
-        {
-          !this.state.homePageMovies.length &&
+        {this.state.error && <ErrorPage errorMessage={this.state.error} />}
+        {!this.state.homePageMovies.length && (
           <h2 className="error-page"> ...Loading Movies...</h2>
-        }
-        { 
-          !this.state.clickedMovie && 
-          <Movies 
-            moviesInfo={ this.state.homePageMovies } 
-            handleMovieClick={ this.handleMovieClick }/>
-        }
-        { 
-          this.state.clickedMovie && 
-           <MoviePreview 
-             moviePreviewInfo={ this.state.movieObject } 
-             closeMoviePreviewBtn = { this.handleHomeButton }/>
-        }
+        )}
+        <Route exact path="/movie/:id" component={MoviePreview} />
+        <Route
+          exact
+          path="/"
+          render={() => <Movies moviesInfo={this.state.homePageMovies} />}
+        />
       </main>
-    )
+    );
   }
 }
 
