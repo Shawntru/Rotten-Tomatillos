@@ -15,7 +15,6 @@ class MoviePreview extends Component {
     if (this.props.match) {
       movieId = parseInt(this.props.match.params.id);
     }
-    console.log(this.props);
     getSingleMovieData(movieId)
       .then((data) =>
         this.setState({
