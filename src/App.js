@@ -3,11 +3,7 @@ import Movies from './Movies/Movies';
 import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
-import {
-  getAllMovieData,
-  getSingleMovieData,
-  getMovieVideoData,
-} from './apiCalls';
+import { getAllMovieData, getSingleMovieData } from './apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import TrailerPreview from './TrailerPreview/TrailerPreview';
 import './App.scss';
