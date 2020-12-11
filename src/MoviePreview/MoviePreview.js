@@ -30,7 +30,7 @@ class MoviePreview extends Component {
 
   render() {
     if (!this.state.movieObject) {
-      return <section>Error</section>;
+      return <h3 className="error-message app">We apologize, we couldn't find a match for this movie ID</h3>;
     }
     const {
       backdrop_path,

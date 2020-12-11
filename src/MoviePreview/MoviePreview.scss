@@ -82,4 +82,14 @@
   cursor: pointer;
 }
 
+.error-message {
+  height: 100vh;
+  color: $white;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
