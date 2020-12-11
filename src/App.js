@@ -3,7 +3,11 @@ import Movies from './Movies/Movies';
 import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
-import { getAllMovieData } from './apiCalls';
+import {
+  getAllMovieData,
+  getSingleMovieData,
+  getMovieVideoData,
+} from './apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import TrailerPreview from './TrailerPreview/TrailerPreview';
 import './App.scss';
@@ -24,6 +28,13 @@ class App extends Component {
       .catch((error) => this.setState({ error }));
   };
 
+  // ADDED to get data
+  // getVideoData = () => {
+  //   this.state.homePageMovies.forEach((movie) => {
+  //     getMovieVideoData(movie.id).then((data) => console.log(data.videos));
+  //   });
+  // };
+
   handleError() {
     return (
       <Route render={() => <ErrorPage errorMessage={this.state.error} />} />
@@ -33,10 +44,17 @@ class App extends Component {
   updateMovieDisplays = (data) => {
     this.setState({ homePageMovies: data });
     const trailerMovieIndex = Math.floor(Math.random() * data.length);
-    this.setState({
-      trailerMovie: this.state.homePageMovies[trailerMovieIndex],
-    });
+    this.updateTrailerMovie(trailerMovieIndex);
+
+    //ADDING for data
+    // this.getVideoData();
   };
+
+  updateTrailerMovie(trailerMovieIndex) {
+    getSingleMovieData(
+      this.state.homePageMovies[trailerMovieIndex].id
+    ).then((data) => this.setState({ trailerMovie: data.movie }));
+  }
 
   render() {
     if (this.state.homePageMovies === undefined) {
@@ -61,7 +79,7 @@ class App extends Component {
             render={() => {
               return (
                 <section>
-                  <TrailerPreview />
+                  <TrailerPreview trailerInfo={this.state.trailerMovie} />
                   <Movies moviesInfo={this.state.homePageMovies} />
                 </section>
               );
