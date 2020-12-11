@@ -6,3 +6,10 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.section-heading {
+  font-size: 2em;
+  color: $white;
+  margin: 1em 10em;
+  border-bottom: $white 1px solid;
+}
