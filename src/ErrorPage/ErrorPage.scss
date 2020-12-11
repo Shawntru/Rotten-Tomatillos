@@ -4,9 +4,35 @@
   height: 100vh;
   color: $white;
   width: 100%;
-  position: fixed;
+  // position: fixed;
   display: flex;
   flex-direction: column;
   color: #FDFFFC;
   justify-content: center;
+  position: relative;
+}
+
+.error-header {
+  z-index: 1;
+  position: absolute;
+  top: 12em;
+  left: 12em;
+}
+
+.error-text {
+  z-index: 1;
+  top: 20em;
+  left: 10em;
+  position: absolute;
+}
+
+.error-tomato {
+  position: absolute;
+  height: 400px;
+  width: 500px;
+  z-index: -1;
+  top: 2em;
+  opacity: 0.3;
+  filter: blur(3px);
+  right: 10em;
 }

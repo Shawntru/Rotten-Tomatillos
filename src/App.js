@@ -18,24 +18,32 @@ class App extends Component {
 
   componentDidMount = () => {
     getAllMovieData()
-      .then((data) => this.setState({ homePageMovies: data.movies }))
+      .then((data) => {
+        this.setState({ homePageMovies: data.movies })})
       .catch((error) => this.setState({ error }));
   };
 
+  handleError() {
+    return <Route render={() => <ErrorPage errorMessage={this.state.error} /> }/>
+  }
+
   render() {
+    if(this.state.homePageMovies === undefined) {
+     return  (<main className="app">
+       <ErrorPage errorMessage={this.state.error} />
+     </main>)
+    }
     return (
       <main className="app">
-        <Navbar />
-        {this.state.error && <ErrorPage errorMessage={this.state.error} />}
-        {!this.state.homePageMovies.length && (
-          <h2 className="error-page"> ...Loading Movies...</h2>
-        )}
-        <Route exact path="/movie/:id" component={MoviePreview} />
-        <Route
-          exact
-          path="/"
-          render={() => <Movies moviesInfo={this.state.homePageMovies} />}
-        />
+          <Navbar />
+          {!this.state.homePageMovies.length && (
+             <h2 className="error-page"> ...Loading Movies...</h2>
+          )}
+          <Switch>
+            <Route exact path="/movie/:id" component={MoviePreview} />
+            <Route exact path="/" render={() => <Movies moviesInfo={this.state.homePageMovies} />}/>
+            <Route render={() => <ErrorPage errorMessage={this.state.error} /> }/>
+          </Switch>
       </main>
     );
   }
