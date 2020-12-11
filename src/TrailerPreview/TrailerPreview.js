@@ -7,51 +7,40 @@ class TrailerPreview extends Component {
   constructor() {
     super();
     this.state = {
-      trailerInfo: '',
-      trailerId: '',
+      movieTrailer: '',
     };
   }
-
-  //737173
-  //this.props.trailerInfo.id
 
   componentDidUpdate = (prevProps) => {
     if (this.props.trailerInfo !== prevProps.trailerInfo) {
       getMovieVideoData(this.props.trailerInfo.id).then((data) =>
         this.setState({
-          trailerInfo: data.videos,
-          trailerId:
-            // '2Gg6Seob5Mg' ||
-            data.videos.find((video) => video.type === 'Trailer').key,
+          movieTrailer: this.findTrailerKey(data),
         })
       );
-      if (!this.state.trailerId) this.setState({ trailerId: '2Gg6Seob5Mg' });
     }
   };
 
+  findTrailerKey = (data) => {
+    let video = data.videos.find(
+      (video) => video.type === 'Trailer' && video.site === 'YouTube'
+    );
+    return !!video ? video.key : '2Gg6Seob5Mg';
+    // return 'IpSK2CsKULg';
+  };
+
   render() {
-    const {
-      // backdrop_path,
-      // poster_path,
-      title,
-      release_date,
-      // overview,
-      genres,
-      // budget,
-      // revenue,
-      // tagline,
-      runtime,
-    } = this.props.trailerInfo;
+    const { title, release_date, genres, runtime } = this.props.trailerInfo;
 
     return (
       <section>
-        {this.state.trailerId && (
+        {this.state.movieTrailer && (
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"
               // Use of the 'no-cookie' tag prevents share/watch later
               // but also throws console errors
-              url={`https:www.https://www.youtube-nocookie.com/watch?v=${this.state.trailerId}`}
+              url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
               width="100%"
               height="100%"
               controls={false}
@@ -64,12 +53,14 @@ class TrailerPreview extends Component {
                     disablekb: 1,
                     fs: 0,
                     iv_load_policy: 3,
-                    playlist: `${this.state.trailerId}`,
+                    playlist: `${this.state.movieTrailer}`,
                     modestbranding: 1,
                   },
                 },
               }}
             />
+
+            <section className="player-cover"></section>
 
             <section className="trailer-info">
               <h2 className="trailer-movie-title">{title}</h2>
