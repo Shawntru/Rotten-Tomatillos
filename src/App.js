@@ -24,13 +24,6 @@ class App extends Component {
       .catch((error) => this.setState({ error }));
   };
 
-  // ADDED to get data
-  // getVideoData = () => {
-  //   this.state.homePageMovies.forEach((movie) => {
-  //     getMovieVideoData(movie.id).then((data) => console.log(data.videos));
-  //   });
-  // };
-
   handleError() {
     return (
       <Route render={() => <ErrorPage errorMessage={this.state.error} />} />
@@ -41,9 +34,6 @@ class App extends Component {
     this.setState({ homePageMovies: data });
     const trailerMovieIndex = Math.floor(Math.random() * data.length);
     this.updateTrailerMovie(trailerMovieIndex);
-
-    //ADDING for data
-    // this.getVideoData();
   };
 
   updateTrailerMovie(trailerMovieIndex) {

@@ -1,6 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import ReactPlayer from 'react-player/youtube';
 import { getMovieVideoData } from '../apiCalls';
+import { Link } from 'react-router-dom';
 import './TrailerPreview.scss';
 
 class TrailerPreview extends Component {
@@ -11,22 +12,31 @@ class TrailerPreview extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.trailerInfo.id) this.fetchMovieVideos();
+  };
+
   componentDidUpdate = (prevProps) => {
     if (this.props.trailerInfo !== prevProps.trailerInfo) {
-      getMovieVideoData(this.props.trailerInfo.id).then((data) =>
-        this.setState({
-          movieTrailer: this.findTrailerKey(data),
-        })
-      );
+      this.fetchMovieVideos();
     }
   };
 
+  fetchMovieVideos = () => {
+    getMovieVideoData(this.props.trailerInfo.id).then((data) =>
+      this.setState({
+        movieTrailer: this.findTrailerKey(data),
+      })
+    );
+  };
+
   findTrailerKey = (data) => {
+    // debugger;
     let video = data.videos.find(
       (video) => video.type === 'Trailer' && video.site === 'YouTube'
     );
     return !!video ? video.key : '2Gg6Seob5Mg';
-    // return 'IpSK2CsKULg';
+    // return '2Gg6Seob5Mg';
   };
 
   render() {
@@ -38,8 +48,6 @@ class TrailerPreview extends Component {
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"
-              // Use of the 'no-cookie' tag prevents share/watch later
-              // but also throws console errors
               url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
               width="100%"
               height="100%"
@@ -60,7 +68,9 @@ class TrailerPreview extends Component {
               }}
             />
 
-            <section className="player-cover"></section>
+            <Link to={`/movie/${this.props.trailerInfo.id}`}>
+              <section className="player-cover"></section>
+            </Link>
 
             <section className="trailer-info">
               <h2 className="trailer-movie-title">{title}</h2>
