@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .movie-preview-page {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   margin: 0;
   background-position: center;
@@ -14,12 +14,24 @@
 }
 
 .description-wrapper {
+  width: 80%;
   height: auto;
-  width: 50em;
-  background: rgba(253, 255, 252, 0.7);
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.preview-react-player {
+  margin: 1em 0 5em 0;
+}
+
+.preview-wrapper {
+  margin: 3em;
+  position: relative;
+  background: rgba(253, 255, 252, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movie-preview-img {
@@ -72,7 +84,8 @@
   }
 }
 
-.movie-preview-button:before, .movie-preview-button:after {
+.movie-preview-button:before,
+.movie-preview-button:after {
   position: absolute;
   left: 15px;
   content: ' ';
@@ -91,5 +104,3 @@
   flex-direction: column;
   justify-content: center;
 }
-
-
