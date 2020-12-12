@@ -31,12 +31,10 @@ class TrailerPreview extends Component {
   };
 
   findTrailerKey = (data) => {
-    // debugger;
     let video = data.videos.find(
       (video) => video.type === 'Trailer' && video.site === 'YouTube'
     );
     return !!video ? video.key : '2Gg6Seob5Mg';
-    // return '2Gg6Seob5Mg';
   };
 
   render() {
