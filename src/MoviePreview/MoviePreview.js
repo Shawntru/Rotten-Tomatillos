@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MoviePreview.scss';
 import ReactPlayer from 'react-player/youtube';
-import { getSingleMovieData } from '../apiCalls';
+import { getSingleMovieData, getMovieVideoData } from '../apiCalls';
 import { Link } from 'react-router-dom';
 
 class MoviePreview extends Component {
@@ -9,7 +9,7 @@ class MoviePreview extends Component {
     super();
     this.state = {
       movieObject: null,
-      movieTrailer: '2Gg6Seob5Mg',
+      movieTrailer: '',
     };
   }
   componentDidMount = () => {
@@ -24,6 +24,18 @@ class MoviePreview extends Component {
         })
       )
       .catch((error) => this.setState({ error }));
+    getMovieVideoData(movieId).then((data) =>
+      this.setState({
+        movieTrailer: this.findTrailerKey(data),
+      })
+    );
+  };
+
+  findTrailerKey = (data) => {
+    let video = data.videos.find(
+      (video) => video.type === 'Trailer' && video.site === 'YouTube'
+    );
+    return !!video ? video.key : '2Gg6Seob5Mg';
   };
 
   switchNumToCurrency(number) {
@@ -85,7 +97,7 @@ class MoviePreview extends Component {
               ></button>
             </Link>
           </div>{' '}
-          <h3>Trailer</h3>
+          <h3>{`${title} Trailer:`}</h3>
           <ReactPlayer
             className="preview-react-player"
             url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
