@@ -65,11 +65,9 @@ class TrailerPreview extends Component {
                 },
               }}
             />
-
             <Link to={`/movie/${this.props.trailerInfo.id}`}>
               <section className="player-cover"></section>
             </Link>
-
             <section className="trailer-info">
               <h2 className="trailer-movie-title">{title}</h2>
               <p className="trailer-details">Released {release_date}</p>
