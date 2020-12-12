@@ -22,9 +22,4 @@ export const getMovieVideoData = async (id) => {
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
   );
   return await response.json();
-
-  // let video = data.videos.find(
-  //   (video) => video.type === 'Trailer' && video.site === 'YouTube'
-  // );
-  // return !!video ? video.key : '2Gg6Seob5Mg';
 };
