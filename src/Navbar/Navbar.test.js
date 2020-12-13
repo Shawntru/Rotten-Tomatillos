@@ -7,5 +7,7 @@ describe('Navbar', () => {
     render(<Navbar />)
 
     expect(screen.getByText('Rancid Tomatillos')).toBeInTheDocument();
+    expect(screen.getByTestId('search-label')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('search a title...')).toBeInTheDocument();
   })
 })
