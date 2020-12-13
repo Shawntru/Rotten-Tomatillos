@@ -9,10 +9,11 @@ import TrailerPreview from './TrailerPreview/TrailerPreview';
 import './App.scss';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       homePageMovies: [],
+      moviesToDisplay: null,
       trailerMovie: {},
       error: '',
     };
@@ -23,6 +24,28 @@ class App extends Component {
       .then((data) => this.updateMovieDisplays(data.movies))
       .catch((error) => this.setState({ error }));
   };
+
+  handleChange = (event) => {
+    event.preventDefault()
+    this.setState({search: event.target.value});
+      let currentMovieList = [];
+      let newMovieList = [];
+  
+      if(event.target.value !== "") {
+        currentMovieList = this.state.homePageMovies;
+        newMovieList = currentMovieList.filter(movie => {
+          const movieTitle = movie.title.toLowerCase();
+          const userTitle = event.target.value.toLowerCase();
+  
+          return movieTitle.includes(userTitle);
+        })
+      } else {
+        newMovieList = this.state.homePageMovies;
+      }
+      this.setState({
+        moviesToDisplay: newMovieList
+      })
+  }
 
   handleError() {
     return (
@@ -52,7 +75,7 @@ class App extends Component {
     }
     return (
       <main className="app">
-        <Navbar />
+        <Navbar handleChangeFunction={this.handleChange} />
         {this.state.error && <ErrorPage errorMessage={this.state.error} />}
         {!this.state.homePageMovies.length && (
           <h2 className="error-page"> ...Loading Movies...</h2>
@@ -66,7 +89,9 @@ class App extends Component {
               return (
                 <section>
                   <TrailerPreview trailerInfo={this.state.trailerMovie} />
-                  <Movies moviesInfo={this.state.homePageMovies} />
+                  <Movies 
+                  moviesInfo={ this.state.homePageMovies } 
+                  filteredMovies={ this.state.moviesToDisplay }/>
                 </section>
               );
             }}

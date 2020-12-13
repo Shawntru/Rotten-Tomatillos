@@ -3,12 +3,13 @@
 .navbar {
   border-bottom: $light-blue solid 2px;
   color: $white;
-  position: sticky;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3em;
   background-color: $dark-blue;
   top: 0;
+  width: 100%;
   z-index: 5;
 }
