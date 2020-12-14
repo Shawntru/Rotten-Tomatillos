@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './MoviePreview.scss';
 import ReactPlayer from 'react-player/youtube';
 import { Link } from 'react-router-dom';
+import cancel_button from '../assets/cancel_button.png';
 
 class MoviePreview extends Component {
   constructor() {
@@ -96,7 +97,9 @@ class MoviePreview extends Component {
               <button
                 data-testid="closing-button-element"
                 className="movie-preview-button"
-              ></button>
+              >
+                <img src={cancel_button} alt="close preview button" />
+              </button>
             </Link>
           </div>{' '}
           {this.state.movieTrailer && (

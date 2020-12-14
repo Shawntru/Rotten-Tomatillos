@@ -5,6 +5,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  background: rgb(1, 22, 39);
+  background: linear-gradient(
+    180deg,
+    rgba(1, 22, 39, 1) 0%,
+    rgba(9, 59, 57, 1) 100%
+  );
 }
 
 .section-heading {
