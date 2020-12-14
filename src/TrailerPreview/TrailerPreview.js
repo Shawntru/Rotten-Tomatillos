@@ -45,6 +45,7 @@ class TrailerPreview extends Component {
         {this.state.movieTrailer && (
           <div className="player-wrapper" data-testid="player-wrapper">
             <ReactPlayer
+              data-testid={`${this.state.movieTrailer}`}
               className="react-player"
               url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
               width="100%"
@@ -69,7 +70,12 @@ class TrailerPreview extends Component {
               <section className="player-cover"></section>
             </Link>
             <section className="trailer-info">
-              <h2 className="trailer-movie-title">{title}</h2>
+              <h2
+                className="trailer-movie-title"
+                data-testid="trailer-movie-title"
+              >
+                {title}
+              </h2>
               <p className="trailer-details">Released {release_date}</p>
               <p className="trailer-details">{genres.join(', ')}</p>
               <p className="trailer-details">{runtime} minutes</p>
