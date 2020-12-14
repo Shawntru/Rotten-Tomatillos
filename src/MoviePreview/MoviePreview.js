@@ -14,25 +14,30 @@ class MoviePreview extends Component {
   componentDidMount = () => {
     let movieId = this.props.movieId;
 
-    this.props.getSingleMovieData(movieId)
+    this.props
+      .getSingleMovieData(movieId)
       .then((data) =>
         this.setState({
           movieObject: data.movie,
         })
-      ).catch((error) => this.setState({ error }));
+      )
+      .catch((error) => this.setState({ error }));
 
-    this.props.getMovieVideoData(movieId).then((data) =>
-      this.setState({
-        movieTrailer: this.findTrailerKey(data),
-      })
-    ).catch((error) => this.setState({ error }));
+    this.props
+      .getMovieVideoData(movieId)
+      .then((data) =>
+        this.setState({
+          movieTrailer: this.findTrailerKey(data),
+        })
+      )
+      .catch((error) => this.setState({ error }));
   };
 
   findTrailerKey = (data) => {
     let video = data.videos.find(
       (video) => video.type === 'Trailer' && video.site === 'YouTube'
     );
-    return !!video ? video.key : '2Gg6Seob5Mg';
+    return !!video ? video.key : '';
   };
 
   switchNumToCurrency(number) {
@@ -94,20 +99,24 @@ class MoviePreview extends Component {
               ></button>
             </Link>
           </div>{' '}
-          <h3>{`${title} Trailer:`}</h3>
-          <ReactPlayer
-            data-testid="player-box"
-            className="preview-react-player"
-            url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
-            controls={true}
-            config={{
-              youtube: {
-                playerVars: {
-                  modestbranding: 1,
-                },
-              },
-            }}
-          />
+          {this.state.movieTrailer && (
+            <div>
+              <h3>{`${title} Trailer:`}</h3>
+              <ReactPlayer
+                data-testid="player-box"
+                className="preview-react-player"
+                url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: {
+                      modestbranding: 1,
+                    },
+                  },
+                }}
+              />
+            </div>
+          )}
         </div>
       </section>
     );
