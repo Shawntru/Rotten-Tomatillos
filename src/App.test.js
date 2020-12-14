@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { getAllMovieData } from './apiCalls.js';
-import { getSingleMovieData } from './apiCalls.js';
+import { getSingleMovieData, getAllMovieData, getMovieVideoData } from './apiCalls.js';
 import App from './App';
 import { MemoryRouter, Route } from 'react-router-dom';
 jest.mock('./apiCalls.js');
@@ -32,6 +31,7 @@ describe('App', () => {
         },
       ],
     });
+
     getSingleMovieData.mockResolvedValueOnce({
       movie: {
         id: 337401,
@@ -50,6 +50,18 @@ describe('App', () => {
         tagline: '',
         average_rating: 4.909090909090909,
       },
+    });
+
+    getMovieVideoData.mockResolvedValueOnce({
+      videos: [
+        {
+        "id": 242,
+        "movie_id": 337401,
+        "key": "01ON04GCwKs",
+        "site": "YouTube",
+        "type": "Teaser"
+        }
+      ]
     });
   });
 
