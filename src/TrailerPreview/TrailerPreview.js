@@ -43,7 +43,7 @@ class TrailerPreview extends Component {
     return (
       <section>
         {this.state.movieTrailer && (
-          <div className="player-wrapper">
+          <div className="player-wrapper" data-testid="player-wrapper">
             <ReactPlayer
               className="react-player"
               url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
