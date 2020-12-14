@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MoviePreview.scss';
 import ReactPlayer from 'react-player/youtube';
-import { getSingleMovieData, getMovieVideoData } from '../apiCalls';
 import { Link } from 'react-router-dom';
 
 class MoviePreview extends Component {
@@ -13,22 +12,20 @@ class MoviePreview extends Component {
     };
   }
   componentDidMount = () => {
-    let movieId;
-    if (this.props.match) {
-      movieId = parseInt(this.props.match.params.id);
-    }
-    getSingleMovieData(movieId)
+    let movieId = this.props.movieId;
+
+    this.props.getSingleMovieData(movieId)
       .then((data) =>
         this.setState({
           movieObject: data.movie,
         })
-      )
-      .catch((error) => this.setState({ error }));
-    getMovieVideoData(movieId).then((data) =>
+      ).catch((error) => this.setState({ error }));
+
+    this.props.getMovieVideoData(movieId).then((data) =>
       this.setState({
         movieTrailer: this.findTrailerKey(data),
       })
-    );
+    ).catch((error) => this.setState({ error }));
   };
 
   findTrailerKey = (data) => {
@@ -99,6 +96,7 @@ class MoviePreview extends Component {
           </div>{' '}
           <h3>{`${title} Trailer:`}</h3>
           <ReactPlayer
+            data-testid="player-box"
             className="preview-react-player"
             url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
             controls={true}

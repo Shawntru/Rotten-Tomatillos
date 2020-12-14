@@ -4,7 +4,8 @@ import Navbar from './Navbar.js'
 
 describe('Navbar', () => {
   it('should render correctly', () => {
-    render(<Navbar />)
+    render(
+    <Navbar handleChangeFunction={ jest.fn() } />)
 
     expect(screen.getByText('Rancid Tomatillos')).toBeInTheDocument();
     expect(screen.getByTestId('search-label')).toBeInTheDocument();
