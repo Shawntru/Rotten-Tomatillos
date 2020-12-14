@@ -35,7 +35,7 @@ class MoviePreview extends Component {
     let video = data.videos.find(
       (video) => video.type === 'Trailer' && video.site === 'YouTube'
     );
-    return !!video ? video.key : '2Gg6Seob5Mg';
+    return !!video ? video.key : '';
   };
 
   switchNumToCurrency(number) {
@@ -97,19 +97,23 @@ class MoviePreview extends Component {
               ></button>
             </Link>
           </div>{' '}
-          <h3>{`${title} Trailer:`}</h3>
-          <ReactPlayer
-            className="preview-react-player"
-            url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
-            controls={true}
-            config={{
-              youtube: {
-                playerVars: {
-                  modestbranding: 1,
-                },
-              },
-            }}
-          />
+          {this.state.movieTrailer && (
+            <div>
+              <h3>{`${title} Trailer:`}</h3>
+              <ReactPlayer
+                className="preview-react-player"
+                url={`https:www.https://www.youtube.com/watch?v=${this.state.movieTrailer}`}
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: {
+                      modestbranding: 1,
+                    },
+                  },
+                }}
+              />
+            </div>
+          )}
         </div>
       </section>
     );
