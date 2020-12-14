@@ -3,7 +3,7 @@ import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 import MoviePreview from './MoviePreview.js';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
-import { getSingleMovieData } from '../apiCalls.js';
+import { getSingleMovieData, getMovieVideoData } from '../apiCalls.js';
 jest.mock('../apiCalls.js');
 
 describe('MoviePreview', () => {
@@ -28,14 +28,36 @@ describe('MoviePreview', () => {
       },
     });
 
+    getMovieVideoData.mockResolvedValueOnce({
+      videos: [
+        {
+          "id": 242,
+          "movie_id": 337401,
+          "key": "01ON04GCwKs",
+          "site": "YouTube",
+          "type": "Teaser"
+        },
+        {
+          "id": 243,
+          "movie_id": 337401,
+          "key": "KK8FHdFluOQ",
+          "site": "YouTube",
+          "type": "Trailer"
+        }
+      ]
+    });
+
     render(
       <MemoryRouter>
-        <MoviePreview />
+        <MoviePreview 
+          movieId = { 337401 }
+          getSingleMovieData = { getSingleMovieData }
+          getMovieVideoData = { getMovieVideoData }
+        />
       </MemoryRouter>
     );
     await waitFor(() => {
       expect(screen.getByText('Mulan')).toBeInTheDocument();
-      expect(screen.getByText('Cool Movie')).toBeInTheDocument();
       expect(screen.getByText('Rating: 4.9')).toBeInTheDocument();
       expect(screen.getByText('Release Date: 2020-09-04')).toBeInTheDocument();
       expect(screen.getByText('Runtime: 115 minutes')).toBeInTheDocument();
@@ -50,6 +72,7 @@ describe('MoviePreview', () => {
         )
       ).toBeInTheDocument();
       expect(screen.getByRole('button')).toBeInTheDocument();
+      expect(screen.getByTestId('player-box')).toBeInTheDocument();
     });
   });
 });
