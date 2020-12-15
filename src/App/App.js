@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import Movies from './Movies/Movies';
-import Navbar from './Navbar/Navbar';
-import ErrorPage from './ErrorPage/ErrorPage';
-import MoviePreview from './MoviePreview/MoviePreview';
+import Movies from '../Movies/Movies';
+import Navbar from '../Navbar/Navbar';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import MoviePreview from '../MoviePreview/MoviePreview';
 import {
   getAllMovieData,
   getMovieVideoData,
   getSingleMovieData,
-} from './apiCalls';
+} from '../apiCalls';
 import { Route, Switch } from 'react-router-dom';
-import TrailerPreview from './TrailerPreview/TrailerPreview';
+import TrailerPreview from '../TrailerPreview/TrailerPreview';
 import './App.scss';
 
 class App extends Component {

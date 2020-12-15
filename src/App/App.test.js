@@ -1,9 +1,8 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { getSingleMovieData, getAllMovieData, getMovieVideoData } from './apiCalls.js';
+import { getSingleMovieData, getAllMovieData, getMovieVideoData } from '../apiCalls.js';
 import App from './App';
-import MoviePreview from './MoviePreview/MoviePreview.js'
-import { BrowserRouter, MemoryRouter, Route } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event'
 jest.mock('./apiCalls.js');
 

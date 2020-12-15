@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, screen, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import MovieCard from './MovieCard.js';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
