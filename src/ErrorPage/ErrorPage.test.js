@@ -1,6 +1,6 @@
-import React from 'react'
-import { screen, render } from '@testing-library/react'
-import ErrorPage from './ErrorPage.js'
+import React from 'react';
+import { screen, render } from '@testing-library/react';
+import ErrorPage from './ErrorPage.js';
 
 describe('ErrorPage', () => {
   it('ErrorPage should render correctly', () => {

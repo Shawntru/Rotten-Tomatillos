@@ -5,7 +5,7 @@ const Navbar = (props) => {
   return (
     <nav data-testid="navbar-element" className="navbar">
       <h1 className="site-title">Rancid Tomatillos</h1>
-      <form className="search-wrapper">
+      <form className="search-wrapper" onSubmit={e => { e.preventDefault(); }}>
         <label
           data-testid="search-label"
           className="label-title"
@@ -19,6 +19,7 @@ const Navbar = (props) => {
           placeholder="search a title..."
           onChange={props.handleChangeFunction}
           autoComplete="off"
+          aria-label="Search through site content"
         />
       </form>
     </nav>
