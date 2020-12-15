@@ -1,72 +1,39 @@
-https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
+# Rancid Tomatillos 
 
-# Getting Started with Create React App
+Rancid Tomatillos is a movie rating and information site where a user can get trailers and info for new and upcoming films, which are pulled from a heroku API.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It was created as a Module 3 project in the Turing Front End Engineering course. 
 
-## Available Scripts
+<img width="33%" src="https://user-images.githubusercontent.com/68252181/102270764-a1e79200-3edb-11eb-9163-9926148ef3f1.png"></img>
+<img width="33%" src="https://user-images.githubusercontent.com/68252181/102270773-a3b15580-3edb-11eb-8949-ed70b9a7f81b.png"></img>
+<img width="33%" src="https://user-images.githubusercontent.com/68252181/102270776-a449ec00-3edb-11eb-9f2c-0da8d5758a2c.png"></img>
 
-In the project directory, you can run:
+> The original Project Spec [can be found here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html).
 
-### `npm start`
+## Features:
+- **Random Film Previews on Load** - The site gets a random movie from the information pulled from the API and displays the films trailer and information to the user. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Completely Searchable** - The site responds in real time to queries using the search bar and displays them to the user
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Detailed Movie Information** - Each movie can be clicked in order to preview details from the film, such as release date, budget, trailer, and overall rating. 
 
-### `npm test`
+- **Fast and Responsive** - Using React, the site provides a quick and responsive user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Navigation and Bookmarking** - Router allows the user to navigate the site using common sense URLs, as well as allowing the ability to bookmark their favorite movies. 
 
-### `npm run build`
+- **Contains Robust Testing** - All functionality is complimented by a robust testing suite, enabling easy expansion of the code base. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used:
+- Javascript
+- React 
+- Router 
+- SCSS
+- JSX
+- Jest 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authors:
 
-### `npm run eject`
+[Olga Morgan](https://github.com/scripka)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Shawn Truesdale](https://github.com/Shawntru)
