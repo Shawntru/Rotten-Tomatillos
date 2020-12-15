@@ -4,29 +4,23 @@ import './Movies.scss';
 
 const Movies = (props) => {
   let movieCards = [];
-  if(!props.filteredMovies) {
-     movieCards = props.moviesInfo.map(movie => {
-       return (
-        <MovieCard 
-           title={ movie.title }
-           posterPath={ movie.poster_path }
-           id={ movie.id }
-           key={ movie.id }
-         />
-       )
-     })
-   } else {
-      movieCards = props.filteredMovies.map(movie => {
-       return (
-        <MovieCard 
-           title={ movie.title }
-           posterPath={ movie.poster_path }
-           id={ movie.id }
-           key={ movie.id }
-         />
-       )
-     })
-   }
+
+  function createCard(movie) {
+    return (
+      <MovieCard
+        title={movie.title}
+        posterPath={movie.poster_path}
+        id={movie.id}
+        key={movie.id}
+      />
+    );
+  }
+
+  if (!props.filteredMovies) {
+    movieCards = props.moviesInfo.map((movie) => createCard(movie));
+  } else {
+    movieCards = props.filteredMovies.map((movie) => createCard(movie));
+  }
 
   return (
     <section data-testid="movies-element">
