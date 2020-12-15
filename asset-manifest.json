@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Rotten-Tomatillos/static/css/main.d4b0b29d.chunk.css",
-    "main.js": "/Rotten-Tomatillos/static/js/main.68a835bc.chunk.js",
-    "main.js.map": "/Rotten-Tomatillos/static/js/main.68a835bc.chunk.js.map",
+    "main.js": "/Rotten-Tomatillos/static/js/main.147bc6b4.chunk.js",
+    "main.js.map": "/Rotten-Tomatillos/static/js/main.147bc6b4.chunk.js.map",
     "runtime-main.js": "/Rotten-Tomatillos/static/js/runtime-main.69620762.js",
     "runtime-main.js.map": "/Rotten-Tomatillos/static/js/runtime-main.69620762.js.map",
     "static/js/2.fb384859.chunk.js": "/Rotten-Tomatillos/static/js/2.fb384859.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.69620762.js",
     "static/js/2.fb384859.chunk.js",
     "static/css/main.d4b0b29d.chunk.css",
-    "static/js/main.68a835bc.chunk.js"
+    "static/js/main.147bc6b4.chunk.js"
   ]
 }
