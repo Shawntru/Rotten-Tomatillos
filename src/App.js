@@ -3,7 +3,11 @@ import Movies from './Movies/Movies';
 import Navbar from './Navbar/Navbar';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MoviePreview from './MoviePreview/MoviePreview';
-import { getAllMovieData, getMovieVideoData, getSingleMovieData } from './apiCalls';
+import {
+  getAllMovieData,
+  getMovieVideoData,
+  getSingleMovieData,
+} from './apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import TrailerPreview from './TrailerPreview/TrailerPreview';
 import './App.scss';
@@ -26,26 +30,26 @@ class App extends Component {
   };
 
   handleChange = (event) => {
-    event.preventDefault()
-    this.setState({search: event.target.value});
-      let currentMovieList = [];
-      let newMovieList = [];
-  
-      if(event.target.value !== "") {
-        currentMovieList = this.state.homePageMovies;
-        newMovieList = currentMovieList.filter(movie => {
-          const movieTitle = movie.title.toLowerCase();
-          const userTitle = event.target.value.toLowerCase();
-  
-          return movieTitle.includes(userTitle);
-        })
-      } else {
-        newMovieList = this.state.homePageMovies;
-      }
-      this.setState({
-        moviesToDisplay: newMovieList
-      })
-  }
+    event.preventDefault();
+    this.setState({ search: event.target.value });
+    let currentMovieList = [];
+    let newMovieList = [];
+
+    if (event.target.value !== '') {
+      currentMovieList = this.state.homePageMovies;
+      newMovieList = currentMovieList.filter((movie) => {
+        const movieTitle = movie.title.toLowerCase();
+        const userTitle = event.target.value.toLowerCase();
+
+        return movieTitle.includes(userTitle);
+      });
+    } else {
+      newMovieList = this.state.homePageMovies;
+    }
+    this.setState({
+      moviesToDisplay: newMovieList,
+    });
+  };
 
   handleError() {
     return (
@@ -81,17 +85,28 @@ class App extends Component {
           <h2 className="error-page"> ...Loading Movies...</h2>
         )}
         <Switch>
-          <Route exact path="/movie/:id" render = {({ match }) => <MoviePreview 
-            movieId = {match.params.id}
-            getSingleMovieData= { getSingleMovieData }
-            getMovieVideoData={ getMovieVideoData }/>} />
-          <Route exact path="/" render={() => {
+          <Route
+            exact
+            path="/movie/:id"
+            render={({ match }) => (
+              <MoviePreview
+                movieId={match.params.id}
+                getSingleMovieData={getSingleMovieData}
+                getMovieVideoData={getMovieVideoData}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={() => {
               return (
                 <section>
                   <TrailerPreview trailerInfo={this.state.trailerMovie} />
-                  <Movies 
-                  moviesInfo={ this.state.homePageMovies } 
-                  filteredMovies={ this.state.moviesToDisplay }/>
+                  <Movies
+                    moviesInfo={this.state.homePageMovies}
+                    filteredMovies={this.state.moviesToDisplay}
+                  />
                 </section>
               );
             }}
