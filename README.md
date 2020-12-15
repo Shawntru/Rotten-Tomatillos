@@ -79,7 +79,8 @@ Creating a responsive website with multiple features.
 
 ---
 
-![homepage](https://media.giphy.com/media/5Wktpo7NO6Qv7MImpO/giphy.gif)
+![homepage](https://media.giphy.com/media/5Wktpo7NO6Qv7MImpO/giphy-downsized.gif)
+
 
 <details>
   <summary>**Under the Hood**</summary>
@@ -176,13 +177,13 @@ Future additions to include:
 ## Credits
 
 <img src="https://avatars0.githubusercontent.com/u/66269306?s=400&u=b59f8ccc1002269319d952aa028ee270629b2ead&v=4" alt="Olga Morgan"
- width="150" height="auto" />\
+ width="150" height="auto" />
 
 **Olga Morgan**
 [GitHub Profile](https://github.com/scripka)
 
 <img src="https://avatars2.githubusercontent.com/u/68252181?s=460&u=0e706c67d754b36a877dbbc3d7750b32e1e06454&v=4" alt="Shawn Truesdale"
- width="150" height="auto" />\
+ width="150" height="auto" />
 
 **Shawn Truesdale**
 [GitHub Profile](https://github.com/Shawntru)
