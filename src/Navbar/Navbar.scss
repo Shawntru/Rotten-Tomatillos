@@ -65,3 +65,37 @@
   right: 10px;
   z-index: 99;
 }
+
+@media only screen and (max-width: 700px) {
+  .input-box:focus {
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .input-box:focus {
+    width: 90px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .input-box {
+    width: 20px;
+    height: 20px;
+    float: right;
+    background: $white url('../assets/search_icon.png') no-repeat 1px center;
+  }
+
+  .input-box:focus {
+    width: 50px;
+    &::-webkit-input-placeholder {
+      color: #4a4a4a;
+      font-size: 0.6em;
+    }
+  }
+  .navbar {
+    font-size: 0.6em;
+    margin: 0;
+    width: 400px;
+  }
+}
