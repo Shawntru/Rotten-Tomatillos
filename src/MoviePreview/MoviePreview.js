@@ -14,24 +14,8 @@ class MoviePreview extends Component {
   }
   componentDidMount = () => {
     let movieId = this.props.movieId;
-
-    this.props
-      .getSingleMovieData(movieId)
-      .then((data) =>
-        this.setState({
-          movieObject: data.movie,
-        })
-      )
-      .catch((error) => this.setState({ error }));
-
-    this.props
-      .getMovieVideoData(movieId)
-      .then((data) =>
-        this.setState({
-          movieTrailer: this.findTrailerKey(data),
-        })
-      )
-      .catch((error) => this.setState({ error }));
+    this.updateMovieObjectState(movieId);
+    this.updateMovieTrailerState(movieId);
   };
 
   findTrailerKey = (data) => {
@@ -40,6 +24,28 @@ class MoviePreview extends Component {
     );
     return !!video ? video.key : '';
   };
+
+  updateMovieTrailerState(movieId) {
+    this.props
+      .getMovieVideoData(movieId)
+      .then((data) =>
+        this.setState({
+          movieTrailer: this.findTrailerKey(data),
+        })
+      )
+      .catch((error) => this.setState({ error }));
+  }
+
+  updateMovieObjectState(movieId) {
+    this.props
+      .getSingleMovieData(movieId)
+      .then((data) =>
+        this.setState({
+          movieObject: data.movie,
+        })
+      )
+      .catch((error) => this.setState({ error }));
+  }
 
   switchNumToCurrency(number) {
     return '$' + number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
