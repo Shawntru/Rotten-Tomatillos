@@ -1,8 +1,10 @@
 # Rotten Tomatillos - Turing Mod 3 Paired Project
 
+### [Rotten Tomatillos Site](https://shawntru.github.io/Rotten-Tomatillos/)
+
 ### [Link To Our Repo](https://github.com/Shawntru/Rotten-Tomatillos)
 
-### [Rotten Tomatillos](https://shawntru.github.io/Rotten-Tomatillos/)
+### [Original Project Spec](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)
 
 ---
 
@@ -10,16 +12,17 @@
 
 ## Table of Contents
 
-* [Project Overview](#project-overview)
-* [Features](#features)
-* [Technologies and Tools](#technologies-and-tools)
-* [Challenges](#challenges)
-* [Wins](#wins)
-* [ScreenShots and Demos](#screenshots-and-demos)
-* [Roadmap](#roadmap)
-* [Credits](#credits)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies and Tools](#technologies-and-tools)
+- [Challenges](#challenges)
+- [Wins](#wins)
+- [ScreenShots and Demos](#screenshots-and-demos)
+- [Roadmap](#roadmap)
+- [Credits](#credits)
 
 ## Project Overview
+
 ---
 
 Rancid Tomatillos is a movie rating and information site where a user can get trailers and info for new and upcoming films, which are pulled from a heroku API.
@@ -27,39 +30,43 @@ Rancid Tomatillos is a movie rating and information site where a user can get tr
 It was created as a Module 3 project in the Turing Front End Engineering course.
 
 ## Features
+
 ---
 
-- **Random Film Previews on Load** - The site gets a random movie from the information pulled from the API and displays the films trailer and information to the user. 
+- **Random Film Previews on Load** - The site gets a random movie from the information pulled from the API and displays the films trailer and information to the user.
 
 - **Completely Searchable** - The site responds in real time to queries using the search bar and displays them to the user
 
-- **Detailed Movie Information** - Each movie can be clicked in order to preview details from the film, such as release date, budget, trailer, and overall rating. 
+- **Detailed Movie Information** - Each movie can be clicked in order to preview details from the film, such as release date, budget, trailer, and overall rating.
 
 - **Fast and Responsive** - Using React, the site provides a quick and responsive user experience.
 
-- **Navigation and Bookmarking** - Router allows the user to navigate the site using common sense URLs, as well as allowing the ability to bookmark their favorite movies. 
+- **Navigation and Bookmarking** - Router allows the user to navigate the site using common sense URLs, as well as allowing the ability to bookmark their favorite movies.
 
-- **Contains Robust Testing** - All functionality is complimented by a robust testing suite, enabling easy expansion of the code base. 
+- **Contains Robust Testing** - All functionality is complimented by a robust testing suite, enabling easy expansion of the code base.
 
 ## Technologies And Tools
+
 ---
 
-* JavaScript (ES6)
-* HTML
-* CSS/Scss/Sass
-* React
-* Router
-* JSX
-* Jest
+- JavaScript (ES6)
+- HTML
+- CSS/Scss/Sass
+- React
+- Router
+- JSX
+- Jest
 
 ## Challenges
+
 ---
 
-* Integrating async testing
-* Working with states of React components
-* Implementing HTML and JavaScript logic in React
+- Integrating async testing
+- Working with states of React components
+- Implementing HTML and JavaScript logic in React
 
 ## Wins
+
 ---
 
 Creating a responsive website with multiple features.
@@ -138,15 +145,15 @@ Movie Preview Page:
 
 Here the users will find the following information about the chosen movie:
 
-* Movie Poster
-* Rating
-* Release Date
-* Runtime
-* Budget
-* Revenue
-* Genres
-* Overview
-* Trailer
+- Movie Poster
+- Rating
+- Release Date
+- Runtime
+- Budget
+- Revenue
+- Genres
+- Overview
+- Trailer
 
 <img width="33%" src="https://user-images.githubusercontent.com/68252181/102270776-a449ec00-3edb-11eb-9f2c-0da8d5758a2c.png"></img>
 
@@ -157,8 +164,14 @@ Users are able to return to the homepage by pressing the closing button in the t
 ---
 
 ## Roadmap
+
 ---
 
+Future additions to include:
+
+- Create alphabetical sorting for the home page movie view
+- Create user accounts with login
+- Add watchlist/save movie functionality linked to user accounts
 
 ## Credits
 
