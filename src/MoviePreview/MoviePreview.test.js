@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, screen, render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import MoviePreview from './MoviePreview.js';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';

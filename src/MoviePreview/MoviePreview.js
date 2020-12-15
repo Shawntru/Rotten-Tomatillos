@@ -53,6 +53,7 @@ class MoviePreview extends Component {
         </h3>
       );
     }
+
     const {
       backdrop_path,
       poster_path,
