@@ -4,7 +4,7 @@ import { getSingleMovieData, getAllMovieData, getMovieVideoData } from '../apiCa
 import App from './App';
 import { MemoryRouter, Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event'
-jest.mock('./apiCalls.js');
+jest.mock('../apiCalls.js');
 
 describe('App', () => {
   beforeEach(() => {
