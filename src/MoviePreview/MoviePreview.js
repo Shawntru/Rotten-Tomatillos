@@ -110,8 +110,8 @@ class MoviePreview extends Component {
             </Link>
           </div>{' '}
           {this.state.movieTrailer && (
-            <div>
-              <h3>{`${title} Trailer:`}</h3>
+            <div className="movie-preview-trailer-section">
+              <h3 className="trailer-header">{`${title} Trailer:`}</h3>
               <ReactPlayer
                 data-testid="player-box"
                 className="preview-react-player"

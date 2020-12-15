@@ -7,6 +7,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
+  margin-top: 3em;
 }
 
 .react-player {
@@ -50,4 +51,38 @@
 
 .trailer-details {
   font-size: 1.5em;
+}
+
+@media only screen and (max-width: 992px) {
+  .trailer-movie-title {
+    font-size: 3em;
+  }
+  .trailer-details {
+    font-size: 1em;
+  }
+  .react-player {
+    transform: scale(1.70);
+  }
+  .player-wrapper {
+    margin-top: 3em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .trailer-movie-title {
+    font-size: 2em;
+  }
+  .trailer-details {
+    font-size: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .trailer-movie-title {
+    font-size: 1.3em;
+  }
+
+  .trailer-details {
+    font-size: 0.4em;
+  }
 }
