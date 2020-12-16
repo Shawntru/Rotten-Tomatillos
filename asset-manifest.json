@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/rotten-tomatillos/static/css/main.a924a080.chunk.css",
-    "main.js": "/rotten-tomatillos/static/js/main.168026bb.chunk.js",
-    "main.js.map": "/rotten-tomatillos/static/js/main.168026bb.chunk.js.map",
-    "runtime-main.js": "/rotten-tomatillos/static/js/runtime-main.52414a06.js",
-    "runtime-main.js.map": "/rotten-tomatillos/static/js/runtime-main.52414a06.js.map",
-    "static/js/2.fb384859.chunk.js": "/rotten-tomatillos/static/js/2.fb384859.chunk.js",
-    "static/js/2.fb384859.chunk.js.map": "/rotten-tomatillos/static/js/2.fb384859.chunk.js.map",
-    "static/js/3.05545c1a.chunk.js": "/rotten-tomatillos/static/js/3.05545c1a.chunk.js",
-    "static/js/3.05545c1a.chunk.js.map": "/rotten-tomatillos/static/js/3.05545c1a.chunk.js.map",
-    "index.html": "/rotten-tomatillos/index.html",
-    "static/css/main.a924a080.chunk.css.map": "/rotten-tomatillos/static/css/main.a924a080.chunk.css.map",
-    "static/js/2.fb384859.chunk.js.LICENSE.txt": "/rotten-tomatillos/static/js/2.fb384859.chunk.js.LICENSE.txt",
-    "static/media/tomato.6b1264e0.png": "/rotten-tomatillos/static/media/tomato.6b1264e0.png"
+    "main.css": "/Rotten-Tomatillos/static/css/main.a924a080.chunk.css",
+    "main.js": "/Rotten-Tomatillos/static/js/main.168026bb.chunk.js",
+    "main.js.map": "/Rotten-Tomatillos/static/js/main.168026bb.chunk.js.map",
+    "runtime-main.js": "/Rotten-Tomatillos/static/js/runtime-main.69620762.js",
+    "runtime-main.js.map": "/Rotten-Tomatillos/static/js/runtime-main.69620762.js.map",
+    "static/js/2.fb384859.chunk.js": "/Rotten-Tomatillos/static/js/2.fb384859.chunk.js",
+    "static/js/2.fb384859.chunk.js.map": "/Rotten-Tomatillos/static/js/2.fb384859.chunk.js.map",
+    "static/js/3.05545c1a.chunk.js": "/Rotten-Tomatillos/static/js/3.05545c1a.chunk.js",
+    "static/js/3.05545c1a.chunk.js.map": "/Rotten-Tomatillos/static/js/3.05545c1a.chunk.js.map",
+    "index.html": "/Rotten-Tomatillos/index.html",
+    "static/css/main.a924a080.chunk.css.map": "/Rotten-Tomatillos/static/css/main.a924a080.chunk.css.map",
+    "static/js/2.fb384859.chunk.js.LICENSE.txt": "/Rotten-Tomatillos/static/js/2.fb384859.chunk.js.LICENSE.txt",
+    "static/media/tomato.6b1264e0.png": "/Rotten-Tomatillos/static/media/tomato.6b1264e0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.52414a06.js",
+    "static/js/runtime-main.69620762.js",
     "static/js/2.fb384859.chunk.js",
     "static/css/main.a924a080.chunk.css",
     "static/js/main.168026bb.chunk.js"
