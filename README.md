@@ -106,17 +106,6 @@ For displaying trailers we used [react-player](https://www.npmjs.com/package/rea
   muted={true}
   playing={true}
   loop={true}
-  config={{
-    youtube: {
-      playerVars: {
-        disablekb: 1,
-        fs: 0,
-        iv_load_policy: 3,
-        playlist: `${this.state.movieTrailer}`,
-        modestbranding: 1,
-      },
-    },
-  }}
 />
 
 ```
